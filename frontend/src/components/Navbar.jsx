@@ -42,20 +42,20 @@ const Navbar = () => {
       justify="space-between"
       wrap="wrap"
       padding="1rem"
-      bg="teal.500"
+      bg="gray.700"
       color="white"
     >
       <Link to="/">
         <Flex align="center" mr={5} cursor="pointer">
-          <Text fontSize="xl" fontWeight="bold">
-            My Website
+          <Text fontSize="2xl" fontWeight="bold">
+            BooM
           </Text>
         </Flex>
       </Link>
       <HStack>
         {isLogin && (
           <Link to="/newbook">
-            <Button colorScheme="blackAlpha">Create New Book</Button>
+            <Button colorScheme="green">Create New Book</Button>
           </Link>
         )}
         {!isLogin ? (
@@ -101,7 +101,7 @@ const Navbar = () => {
           }}
         >
           <ModalOverlay />
-          <ModalContent>
+          <ModalContent bg="gray.600" color="white">
             <ModalHeader>Login</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
@@ -111,6 +111,7 @@ const Navbar = () => {
                   <Input
                     name="email"
                     type="email"
+                    borderColor={"gray.500"}
                     placeholder="Enter your email address"
                   />
                 </FormControl>
@@ -119,6 +120,7 @@ const Navbar = () => {
                   <Input
                     type="password"
                     name="password"
+                    borderColor={"gray.500"}
                     placeholder="Enter your password"
                   />
                 </FormControl>

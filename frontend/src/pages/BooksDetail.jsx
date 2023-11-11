@@ -60,17 +60,20 @@ export default function BookDetails() {
             />
           </Box>
           <Box ml="8">
-            <Heading as="h1" size="lg">
+            <Heading as="h1" size="lg" color="white" mb="4">
               {book.title}
             </Heading>
             <Text fontSize="xl" fontWeight="semibold" color="gray.500">
-              {book.author}
+              Author : {book.author}
             </Text>
             <Text fontSize="xl" fontWeight="semibold" color="gray.500">
-              {book.publisher}
+              Publisher : {book.publisher}
+            </Text>
+            <Text fontSize="xl" fontWeight="semibold" color="gray.500">
+              Year : {book.year}
             </Text>
             <Text fontSize="xl" fontWeight="semibold" color="gray.500" mb="4">
-              {book.year} | {book.pages} pages
+              Pages : {book.pages} pages
             </Text>
           </Box>
         </Flex>
@@ -94,7 +97,7 @@ export default function BookDetails() {
             </PopoverContent>
           </Popover>
           <Link to={`/editbook/${id}`}>
-            <Button>Edit</Button>
+            <Button colorScheme="green">Edit</Button>
           </Link>
         </HStack>
       )}

@@ -1,6 +1,7 @@
 import {
   Button,
   FormControl,
+  Heading,
   FormLabel,
   Image,
   Input,
@@ -84,34 +85,39 @@ export default function BookForm({ bookData }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <VStack spacing={4}>
+      <VStack spacing={4} alignItems="center" justifyContent="center" minH="80vh">
+        <Heading as="h2" size="xl" color="white" textAlign="left" mb={8}>
+          Create New Book
+        </Heading>
         <FormControl>
-          <FormLabel>Title</FormLabel>
-          <Input name="title" required defaultValue={bookData?.title} />
+          <FormLabel color="white">Title</FormLabel>
+          <Input name="title" w="600px" required color="white" borderColor="gray.700" defaultValue={bookData?.title} />
         </FormControl>
         <FormControl>
-          <FormLabel>Author</FormLabel>
-          <Input name="author" required defaultValue={bookData?.author} />
+          <FormLabel color="white">Author</FormLabel>
+          <Input name="author" required color="white" borderColor="gray.700" defaultValue={bookData?.author} />
         </FormControl>
         <FormControl>
-          <FormLabel>Publisher</FormLabel>
-          <Input name="publisher" required defaultValue={bookData?.publisher} />
+          <FormLabel color="white">Publisher</FormLabel>
+          <Input name="publisher" required color="white" borderColor="gray.700" defaultValue={bookData?.publisher} />
         </FormControl>
         <FormControl>
-          <FormLabel>Year</FormLabel>
+          <FormLabel color="white">Year</FormLabel>
           <Input
             name="year"
             type="number"
             required
+            color="white" borderColor="gray.700"
             defaultValue={bookData?.year}
           />
         </FormControl>
         <FormControl>
-          <FormLabel>Pages</FormLabel>
+          <FormLabel color="white">Pages</FormLabel>
           <Input
             name="pages"
             type="number"
             required
+            color="white" borderColor="gray.700"
             defaultValue={bookData?.pages}
           />
         </FormControl>
@@ -120,10 +126,11 @@ export default function BookForm({ bookData }) {
         )}
         {!bookData?.image && (
           <FormControl>
-            <FormLabel>Image</FormLabel>
+            <FormLabel color="white">Image</FormLabel>
             <Input
               name="image"
               type="file"
+              color="white" borderColor="gray.700"
               accept="image/*"
               onChange={(e) => {
                 const file = e.target.files[0];
@@ -133,7 +140,7 @@ export default function BookForm({ bookData }) {
           </FormControl>
         )}
 
-        <Button type="submit">{bookData ? "Edit Book" : "Create Book"}</Button>
+        <Button colorScheme="green" type="submit">{bookData ? "Edit Book" : "Create Book"}</Button>
       </VStack>
     </form>
   );

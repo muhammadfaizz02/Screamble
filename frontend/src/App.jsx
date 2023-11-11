@@ -1,4 +1,5 @@
 import { VStack } from "@chakra-ui/react";
+import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import BookDetails from "./pages/BooksDetail";
@@ -9,7 +10,7 @@ import Register from "./pages/Register";
 
 function App() {
   return (
-    <VStack minH="100vh" minW="100vw">
+    <VStack minH="100vh" minW="100vw" className="body">
       <Router>
         <Navbar />
         <Routes>
