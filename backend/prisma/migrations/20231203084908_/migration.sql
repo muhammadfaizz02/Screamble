@@ -9,16 +9,16 @@ CREATE TABLE "User" (
 );
 
 -- CreateTable
-CREATE TABLE "Book" (
+CREATE TABLE "Product" (
     "id" SERIAL NOT NULL,
-    "title" TEXT NOT NULL,
-    "author" TEXT NOT NULL,
-    "publisher" TEXT NOT NULL,
-    "year" INTEGER NOT NULL,
-    "pages" INTEGER NOT NULL,
+    "name" TEXT NOT NULL,
+    "price" INTEGER NOT NULL,
+    "discount" INTEGER NOT NULL,
+    "description" TEXT NOT NULL,
+    "link" TEXT NOT NULL,
     "image" TEXT,
 
-    CONSTRAINT "Book_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Product_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex

@@ -14,12 +14,12 @@ model User {
   password String
 }
 
-model Book {
+model Product {
   id        Int      @id @default(autoincrement())
-  title     String
-  author    String
-  publisher String
-  year      Int
-  pages     Int
+  name     String
+  price    Int
+  discount Int
+  description      String
+  link     String
   image     String?  // New column for storing the book image file path
 }

@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const multer = require("multer");
-const cors = require("cors");
+const cors = require('cors')
 const path = require("path");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
@@ -27,20 +27,12 @@ function authenticateTokenMiddleware(req, res, next) {
 
 app.use(express.json());
 
-app.use(cors({
-    origin: "http://localhost:5173",
-    allowedHeaders:
-      "Origin, X-Requested-With, Content-Type, Accept, Authorization",
-    methods: "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-    optionsSuccessStatus: 200,
-  })
-);
+app.use(cors());
 
 app.options('*', cors());
 
 app.use("/uploads", express.static("uploads"));
 
-// Set up multer middleware to handle file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "./uploads/");
@@ -96,23 +88,23 @@ app.post("/login", async (req, res) => {
 
 // create a book
 app.post(
-  "/books",
+  "/products",
   authenticateTokenMiddleware,
   upload.single("image"),
   async (req, res) => {
-    const { title, author, publisher, year, pages } = req.body;
+    const { name, price, discount, description, link } = req.body;
     try {
-      const book = await prisma.book.create({
+      const product = await prisma.product.create({
         data: {
-          title,
-          author,
-          publisher,
-          year: parseInt(year),
-          pages: parseInt(pages),
-          image: req.file.path, // add the path to the uploaded image to the book data
+          name,
+          price: parseInt(price),
+          discount: parseInt(discount),
+          description,
+          link,
+          image: req.file.path, // add the path to the uploaded image to the product data
         },
       });
-      res.json({ book });
+      res.json({ product });
     } catch (err) {
       console.log("err", err);
       res.status(400).json({ message: "Book already exists" });
@@ -121,41 +113,41 @@ app.post(
 );
 
 // get all books
-app.get("/books", async (req, res) => {
-  const books = await prisma.book.findMany();
-  res.json({ books });
+app.get("/products", async (req, res) => {
+  const products = await prisma.product.findMany();
+  res.json({ products });
 });
 
 // edit a book
-app.put("/books/:id", authenticateTokenMiddleware, async (req, res) => {
+app.put("/products/:id", authenticateTokenMiddleware, async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, author, publisher, year, pages } = req.body;
-    const book = await prisma.book.update({
+    const { name, price, discount, description, link } = req.body;
+    const product = await prisma.product.update({
       where: { id: Number(id) },
       data: {
-        title,
-        author,
-        publisher,
-        year,
-        pages,
+        name,
+        price,
+        discount,
+        description,
+        link
       },
     });
-    res.json({ book });
+    res.json({ product });
   } catch (err) {
     console.log(err);
-    res.status(400).json({ message: "Something went wrong" });
   }
 });
 
+
 // delete a book
-app.delete("/books/:id", authenticateTokenMiddleware, async (req, res) => {
+app.delete("/products/:id", authenticateTokenMiddleware, async (req, res) => {
   try {
     const { id } = req.params;
-    const book = await prisma.book.delete({
+    const product = await prisma.product.delete({
       where: { id: Number(id) },
     });
-    res.json({ book });
+    res.json({ product });
   } catch (e) {
     console.log(e);
     res.status(400).json({ message: "Something went wrong" });
@@ -163,13 +155,13 @@ app.delete("/books/:id", authenticateTokenMiddleware, async (req, res) => {
 });
 
 // get book by id
-app.get("/books/:id", async (req, res) => {
+app.get("/products/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const book = await prisma.book.findUnique({
+    const product = await prisma.product.findUnique({
       where: { id: Number(id) },
     });
-    res.json({ book });
+    res.json({ product });
   } catch (e) {
     console.log(e);
     res.status(400).json({ message: "Something went wrong" });
@@ -177,6 +169,6 @@ app.get("/books/:id", async (req, res) => {
 });
 
 // Start the server
-app.listen(8000, () => {
-  console.log("Server started on port 8000");
+app.listen(3000, () => {
+  console.log("Server started on port 3000");
 });

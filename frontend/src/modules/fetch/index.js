@@ -25,9 +25,9 @@ async function loginUser(email, password) {
 }
 
 // Function for create book endpoint
-async function createBook(formData) {
+async function createProduct(formData) {
   try {
-    const response = await instance.post("/books", formData, {
+    const response = await instance.post("/products", formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
     return response.data;
@@ -37,9 +37,9 @@ async function createBook(formData) {
 }
 
 // Function for get all books endpoint
-async function getAllBooks() {
+async function getAllProducts() {
   try {
-    const response = await instance.get("/books");
+    const response = await instance.get("/products ");
     return response.data;
   } catch (error) {
     throw new Error(error.response.data.message || "Something went wrong");
@@ -47,14 +47,13 @@ async function getAllBooks() {
 }
 
 // Function for edit book endpoint
-async function editBook(id, title, author, publisher, year, pages) {
+async function editProduct(id, name, description, price, discount) {
   try {
-    const response = await instance.put(`/books/${id}`, {
-      title,
-      author,
-      publisher,
-      year,
-      pages,
+    const response = await instance.put(`/products/${id}`, {
+      name,
+      description,
+      price,
+      discount,
     });
     return response.data;
   } catch (error) {
@@ -63,18 +62,18 @@ async function editBook(id, title, author, publisher, year, pages) {
 }
 
 // Function for delete book endpoint
-async function deleteBook(id) {
+async function deleteProduct(id) {
   try {
-    const response = await instance.delete(`/books/${id}`);
+    const response = await instance.delete(`/products/${id}`);
     return response.data;
   } catch (error) {
     throw new Error(error.response.data.message || "Something went wrong");
   }
 }
 
-async function getBookDetailById(id) {
+async function getProductDetailById(id) {
   try {
-    const response = await instance.get(`/books/${id}`);
+    const response = await instance.get(`/products/${id}`);
     return response.data;
   } catch (error) {
     throw new Error(error.response.data.message || "Something went wrong");
@@ -84,9 +83,9 @@ async function getBookDetailById(id) {
 export {
   registerUser,
   loginUser,
-  createBook,
-  getAllBooks,
-  editBook,
-  deleteBook,
-  getBookDetailById,
+  createProduct,
+  getAllProducts,
+  editProduct,
+  deleteProduct,
+  getProductDetailById,
 };
