@@ -48,19 +48,19 @@ export default function ProductDetails() {
                         )}
                     </div>
                     <div className="text-left p-6 bg-white w-full">
-                        <h1 className="text-2xl mb-2 lg:text-2xl 2xl:text-2xl font-semibold">{product && product.name}</h1>
-                        <p className="font-bold text-2xl md:text-2xl lg:text-2xl"><span className="font-medium text-gray-700 italic mr-2 line-through">Rp {product && product.price}</span> Rp {product && product.discount}</p>
+                        <h1 className="text-xl mb-2 lg:text-2xl 2xl:text-2xl font-semibold">{product && product.name}</h1>
+                        <p className="font-bold text-xl md:text-2xl lg:text-2xl"><span className="font-medium text-gray-700 italic mr-2 line-through">Rp {product && product.price}</span> Rp {product && product.discount}</p>
                         <div className="my-6 text-center">
                             <a href={product && product.link} className="inline-block w-full px-4 py-4 bg-gray-900 text-white text-xl">
                                 Beli Sekarang
                             </a>
                         </div>
 
-                        <p className="text-xl mb-6 text-black font-medium">{product && product.description}</p>
+                        <p className="text-xl mb-10 text-black font-medium">{product && product.description}</p>
                         {localStorage.getItem('token') && (
-                            <div className="flex">
+                            <div className="flex mb-10">
                                 <div className="relative inline-block">
-                                    <button className="bg-red-500 text-xl text-white py-2 px-8 rounded">
+                                    <button onClick={handleDeleteProduct} className="bg-red-500 text-xl text-white py-2 px-8 rounded">
                                         Delete
                                     </button>
                                     <div className="hidden absolute z-50 bg-white border border-gray-300 p-4 mt-2">

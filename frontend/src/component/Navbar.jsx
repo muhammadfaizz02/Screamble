@@ -74,7 +74,16 @@ const Navbar = () => {
               }
             }}
           >
-            <h2 className="text-2xl text-center font-semibold mb-4">Login</h2>
+            <div className="flex mb-4">
+              <button
+                type="button"
+                className="text-white mr-10"
+                onClick={closeModal}
+              >
+                ✖
+              </button>
+              <h2 className="text-2xl text-center font-semibold">Login</h2>
+            </div>
             <div className="mb-4">
               <label htmlFor="email" className="block text-white text-md md:text-lg lg:text-lg 2xl:text-lg font-medium">
                 Email

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Products from "../component/Product";
-// import Component from "../component/Carousel";
+import Component from "../component/Carousel";
 import { getAllProducts } from "../modules/fetch";
 import Footer from "../component/Footer";
 import bg from "../assets/bg.jpg"
@@ -18,7 +18,7 @@ export default function Homepage() {
 
     return (
         <div className="flex flex-col min-h-screen">
-            {/* <Component /> */}
+            <Component />
             <div className="flex-grow bg-local bg-cover bg-center" style={{ backgroundImage: `url(${bg})` }}>
                 <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 my-10 mx-10 lg:mx-20 2xl:mx-20">
                     {products?.map((product) => (
