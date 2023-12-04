@@ -21,7 +21,7 @@ const Navbar = () => {
     <div className="flex w-full items-center justify-between p-4 bg-gray-800 text-white">
       <Link to="/">
         <div className="flex items-center cursor-pointer">
-          <span className="text-xl font-bold">SCRAMBLER</span>
+          <span className="text-xl font-bold">SCREAMBLE</span>
         </div>
       </Link>
       <div className="flex space-x-4">
