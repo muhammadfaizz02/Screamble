@@ -169,6 +169,6 @@ app.get("/products/:id", async (req, res) => {
 });
 
 // Start the server
-app.listen(3000, () => {
+app.listen(7000, () => {
   console.log("Server started on port 3000");
 });

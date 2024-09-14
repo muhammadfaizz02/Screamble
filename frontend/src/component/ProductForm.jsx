@@ -64,7 +64,7 @@ export default function ProductForm({ productData }) {
                 </div>
                 <div className="flex flex-col">
                     <label className="text-sm lg:text-md 2xl:text-md font-semibold">Deskripsi</label>
-                    <input
+                    <textarea
                         name="description"
                         type="text"
                         required

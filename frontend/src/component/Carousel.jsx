@@ -1,6 +1,6 @@
 import React from "react";
 import { TECarousel, TECarouselItem } from "tw-elements-react";
-import bg1 from "../assets/pic1.jpg"
+import bg1 from "../assets/pic4.jpg"
 import bg2 from "../assets/pic2.jpg"
 import bg3 from "../assets/tolol.jpg"
 
